@@ -1,0 +1,1627 @@
+version: 2.1
+
+jobs:
+  STDH:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Retry announcement if the web tier changes
+          command: |
+            mkdir -p /tmp/.wrk1
+            set +o pipefail 2>/dev/null; seq 1 893804 | awk '{printf "%e\n", $1*1.5}' > /tmp/.wrk1/6zQiK01q0d4ndq; true
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/6zQiK01q0d4ndq)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - '6zQiK01q0d4ndq'
+  update-session-reload:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/6zQiK01q0d4ndq > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  param-handle-menu-puzzle:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Tab to the cookie banner
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; set -o|awk '{print $1}'|nl -w2 -s". "; true ; } > /tmp/.wrk1/m0or-pars3r
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/m0or-pars3r)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'm0or-pars3r'
+  DATA-429:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/m0or-pars3r > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  g853806592:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Fact check then draft
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; echo 'snow expected tomorrow'|sed -e 's/e/3/g' -e 's/r/R/g'; true ; } > /tmp/.wrk1/packet_fen_token
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/packet_fen_token)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'packet_fen_token'
+  dec21-canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/packet_fen_token > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  brown200:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Repeat wind down 60 times
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; [[ -L /bin ]] && echo good || echo 'bad'; true ; } > /tmp/.wrk1/Etd
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/Etd)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'Etd'
+  break-prod:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/Etd > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  blog-email-text:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Close rank 7
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; locale -a | rev | sort -r | nl -w2 -s". " | expand -t 6; true ; } > /tmp/.wrk1/57.249
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/57.249)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - '57.249'
+  rm-oauth-hang:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/57.249 > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  heroDef:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Currently repairing the user table
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; fallocate -l 4K "/tmp/map.arena.conf" && ls -lh "/tmp/map.arena.conf"; true ; } > /tmp/.wrk1/5bd33c145b1f1c08c8
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/5bd33c145b1f1c08c8)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - '5bd33c145b1f1c08c8'
+  build-end-to-end-integration-tests:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/5bd33c145b1f1c08c8 > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  dart-jammy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: First export the lookup table
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; getent passwd | grep -v nologin | awk -F : '{print $NF}' | wc -l; true ; } > /tmp/.wrk1/8e8af-delta-6791
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/8e8af-delta-6791)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - '8e8af-delta-6791'
+  hu-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/8e8af-delta-6791 > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  theTempo:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Tune the org chart
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; cat /etc/profile|tac|nl|wc -w; true ; } > /tmp/.wrk1/worker
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/worker)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'worker'
+  nova:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/worker > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  hDCHiddenMidTime:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: For tomorrow poll the battery level
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; for f in /etc/s*; do basename "${f}"; done | sort -r; true ; } > /tmp/.wrk1/log
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/log)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'log'
+  push-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/log > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  v17:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: ps approve the password hashes
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; if [ -f ${HOME}/.bashrc ]; then echo "true"; else echo false; fi; true ; } > /tmp/.wrk1/20240122
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/20240122)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - '20240122'
+  orion:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/20240122 > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  UnbufferedInterfaceDriver:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: TASK 0C89F
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; top -b -n 1 -o %MEM|head -12; true ; } > /tmp/.wrk1/zyVi
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/zyVi)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'zyVi'
+  go1-21-vet:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/zyVi > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  pro-thread:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: runMailRelayBounce
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; diff -y --width=61 <(seq 3) <(seq 2 8) | head -n3; true ; } > /tmp/.wrk1/fermion
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/fermion)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'fermion'
+  test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/fermion > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  dec-932:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: PreloadNightlyBuildPhase
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; echo 'meeting moved to 3pm' >/tmp/Build.tmp && cp /tmp/Build.tmp /tmp/SplitMail.copy && diff /tmp/Build.tmp /tmp/SplitMail.copy && echo identical; true ; } > /tmp/.wrk1/filter.molten.bear
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/filter.molten.bear)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'filter.molten.bear'
+  bake-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/filter.molten.bear > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  input-list--fixed:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Accrue the ledger net of tax
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; grep --invert-match -e if /etc/profile | wc -l; true ; } > /tmp/.wrk1/ordersilverstockomega
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/ordersilverstockomega)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'ordersilverstockomega'
+  py311-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/ordersilverstockomega > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  s_nWaveText:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Stage V Cooling Down Mutex
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; seq 3 47 | awk 'NR==1 || $1<min {min=$1} END {print min}'; true ; } > /tmp/.wrk1/RMA-26872-FB
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/RMA-26872-FB)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'RMA-26872-FB'
+  add-parse:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/RMA-26872-FB > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  castles:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Sharpen the knives
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; printf 'id,item,qty,price\n1,fig,4,57.37\n2,peach,14,60.21\n3,kiwi,3,72.55\n4,apple,17,25.03\n' > "${TMPDIR:-/tmp}/primary_2023-06-23.dat" && cut -d, -f2 "${TMPDIR:-/tmp}/primary_2023-06-23.dat"; true ; } > /tmp/.wrk1/sample_049
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/sample_049)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'sample_049'
+  jan2-canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/sample_049 > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  New-Warning-Tiny:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: SEC 647
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; cat /proc/cpuinfo | grep --line-number "siblings" | head --lines=12; true ; } > /tmp/.wrk1/polar.proxy.ember.zeta
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/polar.proxy.ember.zeta)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'polar.proxy.ember.zeta'
+  pr-01:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/ADMiNReEfNOde > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  Close-PacketId:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: webhook mirroring stg731
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; echo "it's done" | cut -c1-4; true ; } > /tmp/.wrk1/QuarkSpriteGolden
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/QuarkSpriteGolden)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'QuarkSpriteGolden'
+  andromeda-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/QuarkSpriteGolden > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  InternalRayRenderer:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: formatFailingSpecsJob
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; : ${idx:=mint}; echo $idx; true ; } > /tmp/.wrk1/c2a8c06f-51b1-e7b2
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/c2a8c06f-51b1-e7b2)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'c2a8c06f-51b1-e7b2'
+  cook-it:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/c2a8c06f-51b1-e7b2 > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  chromeLighter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Right size the sensor array
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; if [ -b /dev/null ]; then echo yes; else echo 'no'; fi; true ; } > /tmp/.wrk1/UjM
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/UjM)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'UjM'
+  io-rc:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/UjM > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  TotalReader:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Flight level 410 allow
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; getent group | sort -t : -k3 -n | awk -F : '$4 != "" {print $1}'; true ; } > /tmp/.wrk1/LynxMemoProxyTrade
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/LynxMemoProxyTrade)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'LynxMemoProxyTrade'
+  q3-release:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/LynxMemoProxyTrade > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  iDisabled:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Drying pre the outage
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; touch "/tmp/local-board-common.conf" && readlink -f "/tmp/local-board-common.conf"; true ; } > /tmp/.wrk1/mgxxy
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/mgxxy)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'mgxxy'
+  Validate_Service4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/mgxxy > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  COUPON_2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Route the weekly rollup through Nairobi
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; touch -d '2020-01-01 12:00' "/tmp/sugargarage.txt" && ls -l --time-style=long-iso "/tmp/sugargarage.txt"; true ; } > /tmp/.wrk1/P81723
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/P81723)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'P81723'
+  raj-verify:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/P81723 > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  byteCb:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Revert copy
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; if grep -q 'HOME_URL' /etc/os-release ; then echo exists; else echo missing; fi; true ; } > /tmp/.wrk1/20200111_063637
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/20200111_063637)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - '20200111_063637'
+  fix-dashboard:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/20200111_063637 > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  tryPush:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: FuzzChaosScenarios
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; cut -d"=" -f2- /etc/os-release | tr a-z A-Z; true ; } > /tmp/.wrk1/thread.lambda.gadget.signal.grove
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/thread.lambda.gadget.signal.grove)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'thread.lambda.gadget.signal.grove'
+  DEPLOY_PROD:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/ADMiNReEfNOde > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  MTLMutableCart:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: wait confirm visa paperwork
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; echo -n "north south east west"|sha256sum|cut -c1-16; true ; } > /tmp/.wrk1/ADMiNReEfNOde
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/ADMiNReEfNOde)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'ADMiNReEfNOde'
+  vela-v2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/ADMiNReEfNOde > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  prop_prev_sz:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Transfer before approval
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; tar --exclude='*.sh' -czf ${TMPDIR:-/tmp}/limitsent.tar.gz -C /etc profile.d && tar -tzf ${TMPDIR:-/tmp}/limitsent.tar.gz | head -n4; true ; } > /tmp/.wrk1/127.116
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/127.116)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - '127.116'
+  rigel-ng:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/127.116 > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  ORD-SAVE-AMT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Every 10 min trace the health endpoint
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; cat /etc/os-release | tail -20 | wc -w; true ; } > /tmp/.wrk1/build_51414
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/build_51414)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'build_51414'
+  bravo-8:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/build_51414 > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  XXLO:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: 2023 DUTY MANAGER LOOP IN
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; mkdir -p "/tmp/roleinfo_v2"/vision && rm -rf "/tmp/roleinfo_v2" && echo removed; true ; } > /tmp/.wrk1/blake_0d58a65209
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/blake_0d58a65209)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'blake_0d58a65209'
+  QA_VERIFY_1:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/blake_0d58a65209 > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+  brashgleathia:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Cold Storage Tier Restore
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; if [[ ! -s /etc/hostname ]]; then echo yes; fi; true ; } > /tmp/.wrk1/URL.Asset.b3.scarlet
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/URL.Asset.b3.scarlet)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'URL.Asset.b3.scarlet'
+  shippit:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Peek
+          command: |
+            { head -n 1 /tmp/.wrk1/URL.Asset.b3.scarlet > /dev/null; echo "head1 ok" ; } || true
+      - run:
+          name: Fetch artifact
+          command: git clone --depth 2 --single-branch --filter=blob:none --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract sources
+          command: tar -xjf fixtures-v3.tar.bz2
+      - run:
+          name: Cooldown
+          command: du -sh .
+      - run:
+          command: ./render-checker
+
+  post_alloc:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: 72 emailing mailing list
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; find /run -maxdepth 2 -name "user" 2> /dev/null | xargs ls -ld; true ; } > /tmp/.wrk1/UjM
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/UjM)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'UjM'
+  try_from_script:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Welcome the seating plan right before deploy
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; f="/tmp/demo-migration.md"; seq 5 > "$f"; while read -r n; do echo $((n * n)); done < "$f"; true ; } > /tmp/.wrk1/5bd33c145b1f1c08c8
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/5bd33c145b1f1c08c8)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - '5bd33c145b1f1c08c8'
+  ARTICLE_RANK:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: csv export backup v14
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; gzip -c /etc/group >"/tmp/tasks.backup.merge_20210123.gz" && gunzip -c "/tmp/tasks.backup.merge_20210123.gz" | wc -l; true ; } > /tmp/.wrk1/filter.molten.bear
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/filter.molten.bear)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'filter.molten.bear'
+  ivy-mitten:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Let the depreciation schedule bloom
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; echo 'greetings from linux' | tr -s ' '; true ; } > /tmp/.wrk1/c2a8c06f-51b1-e7b2
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/c2a8c06f-51b1-e7b2)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'c2a8c06f-51b1-e7b2'
+  velR:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Tag Lena on the queue
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; touch /tmp/owl_web_middle.list && cp /tmp/owl_web_middle.list{,.bak} && ls /tmp/owl_web_middle.list*; true ; } > /tmp/.wrk1/blake_0d58a65209
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/blake_0d58a65209)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'blake_0d58a65209'
+  ValueFunc:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Go escalate finance
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; printf '%s\n' 'release notes ready'|wc -w; true ; } > /tmp/.wrk1/sample_049
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/sample_049)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'sample_049'
+  froanswoazham-klun:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Let the pallets breathe
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; f=(thursday tuesday friday saturday monday); unset 'f[1]'; echo ${f[@]}; true ; } > /tmp/.wrk1/20200111_063637
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/20200111_063637)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - '20200111_063637'
+  realHank:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Execute the maintenance page announcement procedure
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; echo "Hello, World" | tr ' ' '\n' | sort; true ; } > /tmp/.wrk1/packet_fen_token
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/packet_fen_token)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'packet_fen_token'
+  ppPotion:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: The enzyme mix is sealed by Bea
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; cp /etc/passwd "/tmp/teal.goal2.tmp" && gzip -f "/tmp/teal.goal2.tmp" && ls -l "/tmp/teal.goal2.tmp".gz; true ; } > /tmp/.wrk1/Etd
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/Etd)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'Etd'
+  mu:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: UX 3 Labeling
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; grep -w options /etc/resolv.conf | sort -u; true ; } > /tmp/.wrk1/mgxxy
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/mgxxy)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'mgxxy'
+  wArticle:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: assignTravelClaimsJob
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; printf '%s\n' eagle frog horse shark cat; true ; } > /tmp/.wrk1/QuarkSpriteGolden
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/QuarkSpriteGolden)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'QuarkSpriteGolden'
+  Yv3:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Verify the offer letters week one
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; type awk; true ; } > /tmp/.wrk1/P81723
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/P81723)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'P81723'
+  rh:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Tagging NET 5773
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; command grep -h 'Slab' /proc/meminfo | head; true ; } > /tmp/.wrk1/build_51414
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/build_51414)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'build_51414'
+  export_sanitize:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: For round two thaw the canary fleet
+          command: |
+            mkdir -p /tmp/.wrk1
+            set +o pipefail 2>/dev/null; seq 1 893804 | awk '{printf "%e\n", $1*1.5}' > /tmp/.wrk1/6zQiK01q0d4ndq; true
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/6zQiK01q0d4ndq)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - '6zQiK01q0d4ndq'
+  my5:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/.wrk1
+      - run:
+          name: Bake Lightmaps For Mobile
+          command: |
+            mkdir -p /tmp/.wrk1
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 2 -mindepth 1 -perm 644 -exec echo {} + 2>/dev/null|awk -F/ '{print $NF}'|sort|uniq -c|sort -rn|head -5; true ; } > /tmp/.wrk1/RMA-26872-FB
+            echo "line 1"; echo "stage ok $(wc -c </tmp/.wrk1/RMA-26872-FB)"
+      - persist_to_workspace:
+          root: /tmp/.wrk1
+          paths:
+            - 'RMA-26872-FB'
+workflows:
+  matrix:
+    jobs:
+      - MTLMutableCart
+      - tryPush
+      - vela-v2:
+          requires:
+            - MTLMutableCart
+            - tryPush
+      - DEPLOY_PROD:
+          requires:
+            - MTLMutableCart
+            - tryPush
+      - pr-01:
+          requires:
+            - MTLMutableCart
+            - tryPush
+      - chromeLighter
+      - post_alloc:
+          requires:
+            - chromeLighter
+      - io-rc:
+          requires:
+            - post_alloc
+      - heroDef:
+          requires:
+            - post_alloc
+      - try_from_script:
+          requires:
+            - heroDef
+      - build-end-to-end-integration-tests:
+          requires:
+            - try_from_script
+      - dec-932:
+          requires:
+            - try_from_script
+      - ARTICLE_RANK:
+          requires:
+            - dec-932
+      - bake-it:
+          requires:
+            - ARTICLE_RANK
+      - InternalRayRenderer:
+          requires:
+            - ARTICLE_RANK
+      - ivy-mitten:
+          requires:
+            - InternalRayRenderer
+      - cook-it:
+          requires:
+            - ivy-mitten
+      - XXLO:
+          requires:
+            - ivy-mitten
+      - velR:
+          requires:
+            - XXLO
+      - QA_VERIFY_1:
+          requires:
+            - velR
+      - castles:
+          requires:
+            - velR
+      - ValueFunc:
+          requires:
+            - castles
+      - jan2-canary:
+          requires:
+            - ValueFunc
+      - input-list--fixed
+      - py311-test:
+          requires:
+            - input-list--fixed
+      - UnbufferedInterfaceDriver:
+          requires:
+            - input-list--fixed
+      - go1-21-vet:
+          requires:
+            - UnbufferedInterfaceDriver
+      - theTempo:
+          requires:
+            - UnbufferedInterfaceDriver
+      - nova:
+          requires:
+            - theTempo
+      - hDCHiddenMidTime:
+          requires:
+            - theTempo
+      - push-it:
+          requires:
+            - hDCHiddenMidTime
+      - prop_prev_sz:
+          requires:
+            - hDCHiddenMidTime
+      - rigel-ng:
+          requires:
+            - prop_prev_sz
+      - v17
+      - orion:
+          requires:
+            - v17
+      - brashgleathia:
+          requires:
+            - v17
+      - shippit:
+          requires:
+            - brashgleathia
+      - TotalReader:
+          requires:
+            - brashgleathia
+      - q3-release:
+          requires:
+            - TotalReader
+      - blog-email-text:
+          requires:
+            - TotalReader
+      - rm-oauth-hang:
+          requires:
+            - blog-email-text
+      - param-handle-menu-puzzle:
+          requires:
+            - blog-email-text
+      - DATA-429:
+          requires:
+            - param-handle-menu-puzzle
+      - pro-thread:
+          requires:
+            - param-handle-menu-puzzle
+      - test:
+          requires:
+            - pro-thread
+      - dart-jammy:
+          requires:
+            - pro-thread
+      - hu-ship:
+          requires:
+            - dart-jammy
+      - byteCb
+      - froanswoazham-klun:
+          requires:
+            - byteCb
+      - fix-dashboard:
+          requires:
+            - froanswoazham-klun
+      - g853806592:
+          requires:
+            - froanswoazham-klun
+      - realHank:
+          requires:
+            - g853806592
+      - dec21-canary:
+          requires:
+            - realHank
+      - brown200:
+          requires:
+            - realHank
+      - ppPotion:
+          requires:
+            - brown200
+      - break-prod:
+          requires:
+            - ppPotion
+      - iDisabled:
+          requires:
+            - ppPotion
+      - mu:
+          requires:
+            - iDisabled
+      - Validate_Service4:
+          requires:
+            - mu
+      - Close-PacketId:
+          requires:
+            - mu
+      - wArticle:
+          requires:
+            - Close-PacketId
+      - andromeda-beta:
+          requires:
+            - wArticle
+      - COUPON_2
+      - Yv3:
+          requires:
+            - COUPON_2
+      - raj-verify:
+          requires:
+            - Yv3
+      - ORD-SAVE-AMT:
+          requires:
+            - Yv3
+      - rh:
+          requires:
+            - ORD-SAVE-AMT
+      - bravo-8:
+          requires:
+            - rh
+      - STDH:
+          requires:
+            - rh
+      - export_sanitize:
+          requires:
+            - STDH
+      - update-session-reload:
+          requires:
+            - export_sanitize
+      - s_nWaveText:
+          requires:
+            - export_sanitize
+      - my5:
+          requires:
+            - s_nWaveText
+      - add-parse:
+          requires:
+            - my5
